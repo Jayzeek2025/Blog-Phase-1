@@ -40,3 +40,54 @@
 .read-the-docs {
   color: #888;
 }
+
+.page {
+  min-height: 100vh;
+  background-color: #1e1e1e;
+  padding: 40px 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1 {
+  color: white;
+  margin-bottom: 30px;
+}
+
+.article-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #444;
+  padding: 20px 0;
+}
+
+.article-content h3 {
+  color: #4f7cff;
+  margin: 0 0 5px 0;
+}
+
+.article-content p {
+  color: #ccc;
+  margin: 0;
+}
+
+.like-btn {
+  background: #2a2a2a;
+  border: 1px solid #555;
+  border-radius: 20px;
+  color: white;
+  padding: 6px 12px;
+  cursor: not-allowed;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 15px;
+}

@@ -34,62 +34,53 @@ export default function ArticlesList() {
   const totalPages = Math.ceil(total / LIMIT)
 
   return (
-    <div>
-      <h1>Articles</h1>
+    <div className="page">
+      <div className="container">
+        <div className="articles-header">
+  <h1>Articles</h1>
+</div>
 
-      {articles.map(article => (
-  <div
-    key={article.slug}
-    style={{
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      borderBottom: '1px solid #eee',
-      padding: '10px 0'
-    }}
-  >
-    <div>
-      <Link to={`/articles/${article.slug}`}>
-        <h3 style={{ margin: 0 }}>{article.title}</h3>
-      </Link>
-      <p>{article.description}</p>
-    </div>
 
-    <button
-      disabled
-      style={{
-        cursor: 'not-allowed',
-        border: '1px solid #ccc',
-        background: article.favorited ? '#5cb85c' : 'white',
-        color: article.favorited ? 'white' : '#555',
-        borderRadius: '20px',
-        padding: '5px 10px'
-      }}
-      title="Login required to like"
-    >
-      ♥ {article.favoritesCount}
-    </button>
-  </div>
-))}
+        {articles.map(article => (
+          <div className="article-card" key={article.slug}>
+            {/* LEFT COLUMN — TEXT */}
+            <div className="article-left">
+              <Link to={`/articles/${article.slug}`}>
+                <h3>{article.title}</h3>
+              </Link>
+              <p>{article.description}</p>
+            </div>
 
-      <div>
-        <button
-          disabled={page === 1}
-          onClick={() => setPage(p => Math.max(p - 1, 1))}
-        >
-          Prev
-        </button>
+            {/* RIGHT COLUMN — LIKE BUTTON */}
+            <div className="article-right">
+              <button className="like-btn" disabled>
+                ❤️ {article.favoritesCount}
+              </button>
+            </div>
+          </div>
+        ))}
 
-        <span> Page {page} of {totalPages} </span>
+        {/* PAGINATION */}
+        <div className="pagination">
+          <button
+            disabled={page === 1}
+            onClick={() => setPage(p => Math.max(p - 1, 1))}
+          >
+            Prev
+          </button>
 
-        <button
-          disabled={page === totalPages}
-          onClick={() => setPage(p => p + 1)}
-        >
-          Next
-        </button>
+          <span>
+            Page {page} of {totalPages}
+          </span>
+
+          <button
+            disabled={page === totalPages}
+            onClick={() => setPage(p => p + 1)}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   )
 }
-

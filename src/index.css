@@ -1,11 +1,12 @@
+/* ===== GLOBAL RESET / BASE ===== */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: #f2f1f1;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,56 +14,155 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #1e1e1e;
 }
 
+/* Links */
+a {
+  font-weight: 500;
+  color: #4f7cff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #6b8cff;
+}
+
+/* Headings */
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+  color: white;
 }
 
+/* Buttons */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  border-radius: 20px;
+  border: 1px solid #555;
+  padding: 6px 14px;
+  font-size: 0.9rem;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #2a2a2a;
+  color: white;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: all 0.2s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+button:hover:not(:disabled) {
+  border-color: #4f7cff;
+  background-color: #333;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* ===== PAGE LAYOUT ===== */
+.page {
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+/* Centered content container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== ARTICLE LIST ===== */
+.article-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #444;
+  padding: 20px 0;
+}
+
+/* Left column (title + description) */
+.article-left {
+  flex: 1;
+  text-align: left;
+}
+
+.article-left h3 {
+  color: #bd89c0;
+  margin: 0 0 6px 0;
+  font-size: 1.2rem;
+}
+
+.article-left p {
+  color: #ccc;
+  margin: 0;
+  max-width: 600px;
+  font-size: 0.95rem;
+}
+
+/* Right column (like button) */
+.article-right {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* ===== PAGINATION ===== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.pagination span {
+  color: #ccc;
+}
+
+/* ===== ARTICLE PAGE ===== */
+
+/* ===== ARTICLES HEADER ===== */
+.articles-header {
+  background: linear-gradient(135deg, #d1b1e1, #d8bcdf);
+  padding: 20px 24px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.articles-header h1 {
+  margin: 0;
+  color: rgb(21, 20, 20);
+  font-size: 2rem;
+}
+
+.article-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.article-page h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.article-page p {
+  color: #ccc;
+}
+
+/* Markdown content */
+.article-page markdown,
+.article-page p,
+.article-page li {
+  line-height: 1.7;
 }
